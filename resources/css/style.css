@@ -1,0 +1,343 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.container-body {
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+/* Header Bar */
+
+header {
+  width: 100%;
+  background: #4db6ac;
+  box-shadow: 0 6px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+header a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+}
+
+header li {
+  list-style: none;
+  float: left;
+  padding: 0 20px 0 20px;
+}
+
+header li a {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+}
+
+header li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s;
+}
+
+header li a:hover::after {
+  width: 100%;
+}
+
+header #Logo {
+  margin: 0;
+  float: left;
+}
+
+header nav {
+  float: right;
+  margin-top: 33px;
+}
+
+header h1 a {
+  font-size: 35px;
+}
+
+header h1 a {
+  font-weight: lighter;
+  font-size: 35px;
+}
+
+#Logo h1 {
+  color: #fff;
+}
+
+/* Main Body */
+
+  /* Modal */
+
+  .sModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  .eModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    font-size: 20px;
+    margin: 10% auto;
+    padding: 8px 10px 40px 10px;
+    text-align: center;
+    width: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+    animation-name: modalopen;
+    animation-duration: 0.15s;
+  }
+
+  .closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+  }
+
+  .closeBtn:hover, .closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-content select {
+    width: 170px;
+    padding: 4px;
+    border: 2px solid #26a69a;
+  }
+
+  .modal-content .date-input {
+    width: 162px;
+    padding: 2px;
+    border: 2px solid #26a69a;
+  }
+
+  .modal-content .submitBtn {
+    width: 150px;
+    height: 40px;
+    background: #fff;
+    border: 2px solid #26a69a;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .modal-content .submitBtn:hover {
+    background: rgba(56,255,203,0.2);
+  }
+
+.btn {
+  margin-top: 10px;
+  padding: 8px 35px;
+  background: #fff;
+  border: 2px solid #26a69a;
+  border-radius: 30px;
+  color: #000;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background: rgba(56,255,203,0.2);
+  cursor: pointer;
+}
+
+.card {
+  padding: 10px;
+  margin-top: 40px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+.card-content {
+  margin: 0;
+  padding: 10px;
+  border-left: 2px solid #26a69a;
+}
+
+.addUserInput {
+  margin-bottom: 40px;
+}
+
+.container-controlUser > label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  font-size: 20px;
+}
+
+input {
+  width: 170px;
+  padding: 8px;
+  border: 2px solid #26a69a;
+}
+
+.container-checkbox {
+  margin-top: 10px;
+  margin-left: 120px;
+}
+
+/* Customize the label (the container) */
+.checkLabelContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkLabelContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkLabelContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a green background */
+.checkLabelContainer input:checked ~ .checkmark {
+  background-color: #26a69a;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkLabelContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkLabelContainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.addUserSubmit {
+  margin: 40px 0 0 100px;
+  padding: 8px 35px;
+  background: #fff;
+  border: 2px solid #26a69a;
+  border-radius: 30px;
+  color: #000;
+  font-size: 20px;
+}
+
+.addUserSubmit:hover {
+  background: rgba(56,255,203,0.2);
+  cursor: pointer;
+}
+
+.container-controlUser .removeUserSubmit {
+  margin: 40px 0 0 100px;
+  padding: 8px;
+  background: #fff;
+  border: 3px solid #FF5245;
+  border-radius: 30px;
+  color: #000;
+  font-size: 20px;
+}
+
+.removeUserSubmit:hover {
+  background: rgba(255, 82, 69, 0.2);
+  cursor: pointer;
+}
+
+.container-controlUser select {
+  margin-left: 100px;
+  width: 170px;
+  padding: 7px;
+  border: 2px solid #26a69a;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Misc */
+
+.active {
+  font-weight: bolder;
+}
+
+button:focus {outline:0;}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}

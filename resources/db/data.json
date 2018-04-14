@@ -1,0 +1,19 @@
+users = '[{
+  "id": 0,
+  "firstName": "Finlay",
+  "lastName": "McLees",
+  "age": 18,
+  "email": "finlay.mclees@gmail.com"
+}, {
+  "id": 1,
+  "firstName": "Ross",
+  "lastName": "Johnston",
+  "age": 21,
+  "email": "ross.johnston@gmail.com"
+}, {
+  "id": 2,
+  "firstName": "Nick",
+  "lastName": "Scott",
+  "age": 35,
+  "email": "nick.scott@gmail.com"
+}]'';

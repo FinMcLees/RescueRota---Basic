@@ -1,0 +1,128 @@
+<?php
+  include '../resources/db/dbh.html'
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../resources/css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="icon" href="../favicon.png" type="image/x-icon">
+  <title>RescueRota | Add User</title>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div id="Logo">
+      <h1><a>Rescue</a>Rota</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="fullRota.html">Full Rota</a></li>
+        <li><a class="active" href="userControl.html">User Control</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container-body">
+    <div class="container-controlUser">
+      <h1>Add User</h1>
+      <p>Add a new user by filling out the form and then clicking the "Add" button.</p>
+      <label for="firstName" style="margin-top:20px;">First Name</label>
+      <input class="addUserInput" id="firstName" type="text" palceholder="First Name" ><br>
+      <label for="lastName">Last Name</label>
+      <input class="addUserInput" id="lastName" type="text" palceholder="Last Name"><br>
+      <label for="age">Age</label>
+      <input class="addUserInput" id="Age" type="number" palceholder="Age"><br>
+      <label for="email">Email</label>
+      <input class="addUserInput" id="email" type="email" palceholder="Email"><br>
+      <div class="container-checkbox">
+        <label class="checkLabelContainer">Powerboat Level 2
+          <input class="addUserInput" type="checkbox" value="PBL2">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">Safety
+          <input class="addUserInput" type="checkbox" value="PBL2">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">First Aid
+          <input class="addUserInput" type="checkbox" value="PBL2">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">Marklaying
+          <input class="addUserInput" type="checkbox" value="PBL2">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <input class="addUserSubmit" type="submit" value="Add">
+    </div>
+
+    <div class="container-controlUser">
+
+      <h1>Edit User</h1>
+      <p>Select an existing user to edit their details or to remove them.</p>
+
+      <select name="userList">
+        <option value="1">Select a User</option>
+        <option value="2">#?</option>
+        <option value="3">#?</option>
+        <option value="4">#?</option>
+        <option value="5">#?</option>
+        <option value="6">#?</option>
+        <option value="7">#?</option>
+      </select><br>
+
+      <label for="firstName" style="margin-top:20px;">First Name</label>
+      <input class="addUserInput" id="firstName" type="text" palceholder="First Name" value="NULL"><br>
+      <label for="lastName">Last Name</label>
+      <input class="addUserInput" id="lastName" type="text" palceholder="Last Name" value="NULL"><br>
+      <label for="age">Age</label>
+      <input class="addUserInput" id="Age" type="number" palceholder="Age" value="00"><br>
+      <label for="email">Email</label>
+      <input class="addUserInput" id="email" type="email" palceholder="Email" value="NULL"><br>
+      <div class="container-checkbox">
+        <label class="checkLabelContainer">Powerboat Level 2
+          <input class="addUserInput" type="checkbox" value="PBL2" checked="yes">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">Safety Boat
+          <input class="addUserInput" type="checkbox" value="PBL2" checked="yes">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">First Aid
+          <input class="addUserInput" type="checkbox" value="PBL2" checked="yes">
+          <span class="checkmark"></span>
+        </label><br>
+        <label class="checkLabelContainer">Marklaying
+          <input class="addUserInput" type="checkbox" value="PBL2" checked="yes">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+      <input class="removeUserSubmit" type="submit" value="Remove User"><br>
+
+      <input class="addUserSubmit" type="submit" value="Save">
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <hr>
+  <p>RescueRota, Finlay McLees &copy; 2018</p>
+</footer>
+
+<script src="../resources/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/db/database.json" charset="utf-8"></script>
+<script src="../resources/js/app.js" charset="utf-8"></script>
+
+<!-- <script src="../resources/js/app.js" charset="utf-8"></script> -->
+</body>
+</html>
