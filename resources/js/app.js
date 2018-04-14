@@ -1,8 +1,9 @@
-var request = new XMLHttpRequest();
+var usersRequest = new XMLHttpRequest();
 
-request.open('GET', '../db/data.json');
-request.onload = function() {
-  console.log(request.responseText);
+usersRequest.open('GET', 'https://raw.githubusercontent.com/FinMcLees/RescueRota---Basic/master/resources/db/data.json');
+usersRequest.onload = function() {
+  var data = JSON.parse(usersRequest.responseText);
+  console.log(data[0]);
 };
 
-request.send();
+usersRequest.send();
