@@ -1,4 +1,4 @@
-users = '[{
+[{
   "id": 0,
   "firstName": "Finlay",
   "lastName": "McLees",
@@ -16,4 +16,4 @@ users = '[{
   "lastName": "Scott",
   "age": 35,
   "email": "nick.scott@gmail.com"
-}]'';
+}]
