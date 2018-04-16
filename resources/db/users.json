@@ -5,10 +5,10 @@
   "age": 18,
   "email": "finlay.mclees@gmail.com",
   "qualifications" : {
-    "PBL2": true,
-    "SB": true,
-    "FA": true,
-    "ML": true
+    "PBL2": "true",
+    "SB": "true",
+    "FA": "true",
+    "ML": "true"
   }
 }, {
   "id": 1,
@@ -29,10 +29,10 @@
   "age": 35,
   "email": "nick.scott@gmail.com",
   "qualifications" : {
-    "PBL2": false,
-    "SB": false,
-    "FA": true,
-    "ML": false
+    "PBL2": "false",
+    "SB": "false",
+    "FA": "true",
+    "ML": "false"
   }
 }, {
   "id": 3,

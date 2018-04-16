@@ -65,7 +65,7 @@
       <h1>Edit User</h1>
       <p>Select an existing user to edit their details or to remove them.</p>
 
-      <select id="userList" name="userList" onchange="renderUserData()">
+      <select id="userList" name="userList" onchange="userFetchFormFill()">
         <option value="" disabled selected hidden>Select a User...</option>
       </select><br>
 
@@ -79,19 +79,19 @@
       <input class="addUserInput" id="editEmail" type="email" palceholder="Email" value=""><br>
       <div class="container-checkbox">
         <label class="checkLabelContainer">Powerboat Level 2
-          <input class="addUserInput" type="checkbox" id="editPBL2" checked="yes">
+          <input class="addUserInput" type="checkbox" id="editPBL2">
           <span class="checkmark"></span>
         </label><br>
         <label class="checkLabelContainer">Safety Boat
-          <input class="addUserInput" type="checkbox" id="editSB" checked="yes">
+          <input class="addUserInput" type="checkbox" id="editSB">
           <span class="checkmark"></span>
         </label><br>
         <label class="checkLabelContainer">First Aid
-          <input class="addUserInput" type="checkbox" id="editFA" checked="yes">
+          <input class="addUserInput" type="checkbox" id="editFA">
           <span class="checkmark"></span>
         </label><br>
         <label class="checkLabelContainer">Marklaying
-          <input class="addUserInput" type="checkbox" id="editML" checked="yes">
+          <input class="addUserInput" type="checkbox" id="editML">
           <span class="checkmark"></span>
         </label>
       </div>

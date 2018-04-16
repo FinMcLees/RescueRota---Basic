@@ -33,13 +33,32 @@ function renderUsersList(data) {
   }
 }
 
-function renderUserData() {
+function userFetchFormFill() {
+  var usersRequest = new XMLHttpRequest();
+
+  usersRequest.open('GET', 'https://raw.githubusercontent.com/FinMcLees/RescueRota---Basic/master/resources/db/users.json');
+  usersRequest.onload = function() {
+    var recievedData = JSON.parse(usersRequest.responseText);
+    renderUserData(recievedData);
+  };
+  usersRequest.send();
+}
+
+function renderUserData(data) {
   console.log('User Selected');
   var userSelectIndex = userListDropDown.selectedIndex - 1;
   console.log(userSelectIndex);
   for (i = 0; i < data.length; i++) {
-    if (userSelectIndex = data.id) {
-      console.log(data.email);
+    if (userSelectIndex == data[i].id) {
+      firstNameEditForm.value = data[i].firstName;
+      lastNameEditForm.value = data[i].lastName;
+      ageEditForm.value = data[i].age;
+      emailEditForm.value = data[i].email;
+      PBL2EditForm.checked = data[i].PBL2;
+      SBEditForm.checked = data[i].SB;
+      FAEditForm.checked = data[i].FA;
+      MLEditForm.checked = data[i].ML;
+    } else {
     }
   }
 }
