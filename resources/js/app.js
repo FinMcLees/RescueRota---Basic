@@ -54,10 +54,10 @@ function renderUserData(data) {
       lastNameEditForm.value = data[i].lastName;
       ageEditForm.value = data[i].age;
       emailEditForm.value = data[i].email;
-      PBL2EditForm.checked = data[i].PBL2;
-      SBEditForm.checked = data[i].SB;
-      FAEditForm.checked = data[i].FA;
-      MLEditForm.checked = data[i].ML;
+      PBL2EditForm.checked = data[i].qualifications.PBL2;
+      SBEditForm.checked = data[i].qualifications.SB;
+      FAEditForm.checked = data[i].qualifications.FA;
+      MLEditForm.checked = data[i].qualifications.ML;
     } else {
     }
   }
