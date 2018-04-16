@@ -22,28 +22,31 @@ function userFetch() {
     var recievedData = JSON.parse(usersRequest.responseText);
     renderUsersList(recievedData);
   };
-
   usersRequest.send();
-  return data;
 }
 
-function renderUsersList(data){
+function renderUsersList(data) {
   var userString = "";
-
   for (var i = 0; i < data.length; i++) {
-    userString = "<option id='selectNo"i"'>" + data[i].firstName + " " + data[i].lastName + "</option>";
+    userString = "<option>" + data[i].firstName + " " + data[i].lastName + "</option>";
     userListDropDown.insertAdjacentHTML('beforeend', userString);
-    }
+  }
 }
 
-function renderUserData(data){
+function renderUserData() {
   console.log('User Selected');
-  data
+  var userSelectIndex = userListDropDown.selectedIndex - 1;
+  console.log(userSelectIndex);
+  for (i = 0; i < data.length; i++) {
+    if (userSelectIndex = data.id) {
+      console.log(data.email);
+    }
+  }
 }
 
 // Event functions
 // Fetches the event json list using an XML Http request
-function eventFetch(){
+function eventFetch() {
   var eventRequest = new XMLHttpRequest();
 
   eventRequest.open('GET', 'https://raw.githubusercontent.com/FinMcLees/RescueRota---Basic/master/resources/db/events.json');
@@ -57,7 +60,7 @@ function eventFetch(){
 
 //Series Functions
 //Fetch the series json list using an XML Http request
-function seriesFetch(){
+function seriesFetch() {
   var seriesRequest = new XMLHttpRequest();
 
   seriesRequest.open('GET', 'https://raw.githubusercontent.com/FinMcLees/RescueRota---Basic/master/resources/db/series.json');
