@@ -1,3 +1,11 @@
+// Bring in the file-system dependencies
+var fs = require('fs');
+
+// Defines the url variable for the server connection
+var urlUsers = "http://localhost:8888/db/users.json";
+var urlSeries = "http://localhost:8888/db/series.json";
+var urlEvents = "http://localhost:8888/db/events.json";
+
 // Detects if the user has clicked on the dropdown menu for user edit
 var userListDropDown = document.getElementById('userList');
 
@@ -24,7 +32,7 @@ userFetch();
 function userFetch() {
   var usersRequest = new XMLHttpRequest();
 
-  usersRequest.open('GET', 'http://localhost/db/users.json');
+  usersRequest.open('GET', urlUsers);
   usersRequest.onload = function() {
     var recievedData = JSON.parse(usersRequest.responseText);
     renderUsersList(recievedData);
@@ -43,7 +51,7 @@ function renderUsersList(data) {
 function userFetchFormFill() {
   var usersRequest = new XMLHttpRequest();
 
-  usersRequest.open('GET', 'http://localhost/db/users.json');
+  usersRequest.open('GET', urlUsers);
   usersRequest.onload = function() {
     var recievedData = JSON.parse(usersRequest.responseText);
     renderUserData(recievedData);
@@ -75,7 +83,7 @@ function renderUserData(data) {
 function userFetchDeleteData() {
   var usersRequest = new XMLHttpRequest();
 
-  usersRequest.open('GET', 'http://localhost/db/users.json');
+  usersRequest.open('GET', urlUsers);
   usersRequest.onload = function() {
     var recievedData = JSON.parse(usersRequest.responseText);
     deleteUserData(recievedData);
@@ -97,7 +105,7 @@ function deleteUserData(data) {
 function userFetchSaveData() {
   var usersRequest = new XMLHttpRequest();
 
-  usersRequest.open('GET', 'http://localhost/db/users.json');
+  usersRequest.open('GET', urlUsers);
   usersRequest.onload = function() {
     var recievedData = JSON.parse(usersRequest.responseText);
     saveUserData(recievedData);
@@ -132,25 +140,27 @@ function saveUserData(data) {
       data[i].qualifications.ML = MLEditForm.checked;
 
       // Updates the user json file
-      var xhr = new XMLHttpRequest();
-      xhr.open('PUT', 'http://localhost/db/users.json', true);
-      xhr.onload = function() {
-        var users = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 && xhr.status == "200") {
-
+      var userObj = {
+        "firstName": data[i].firstName,
+        "lastName": data[i].lastName,
+        "age": data[i].age,
+        "email": data[i].email,
+        "qualifications": {
+          "PBL2": data[i].qualifications.PBL2,
+          "SB": data[i].qualifications.SB,
+          "FA": data[i].qualifications.FA,
+          "ML": data[i].qualifications.ML
         }
       }
 
-    }
-  }
-}
+
 
 // Event functions
 // Fetches the event json list using an XML Http request
 function eventFetch() {
   var eventRequest = new XMLHttpRequest();
 
-  eventRequest.open('GET', 'http://localhost/db/events.json');
+  eventRequest.open('GET', urlEvents);
   eventRequest.onload = function() {
     var data = JSON.parse(eventRequest.responseText);
     console.log(data[0]);
@@ -164,7 +174,7 @@ function eventFetch() {
 function seriesFetch() {
   var seriesRequest = new XMLHttpRequest();
 
-  seriesRequest.open('GET', 'http://localhost/db/series.json');
+  seriesRequest.open('GET', urlSeries);
   seriesRequest.onload = function() {
     var data = JSON.parse(seriesRequest.responseText);
     console.log(data[0]);

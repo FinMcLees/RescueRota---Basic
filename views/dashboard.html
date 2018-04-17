@@ -76,24 +76,24 @@
             <h2>Create a Event Rota</h2>
 
             <label for="lastName">Rota Name:</label><br>
-            <input class="addUserInput" id="lastName" type="text" palceholder="Last Name">
+            <input class="addUserInput" id="eventRotaName" type="text" palceholder="Last Name">
 
             <p>Select the number of boats for each race:</p>
-            <select name="boatNo">
+            <select id="eventBoatNo" name="boatNo">
               <option value="1">1 Boat</option>
               <option value="2">2 Boat's</option>
               <option value="3">3 Boat's</option>
-              <option value="3">4 Boat's</option>
-              <option value="3">5 Boat's</option>
-              <option value="3">6 Boat's</option>
-              <option value="3">7 Boat's</option>
-              <option value="3">8 Boat's</option>
-              <option value="3">9 Boat's</option>
+              <option value="4">4 Boat's</option>
+              <option value="5">5 Boat's</option>
+              <option value="6">6 Boat's</option>
+              <option value="7">7 Boat's</option>
+              <option value="8">8 Boat's</option>
+              <option value="9">9 Boat's</option>
             </select>
 
             <p>Select the number of Marklayers:</p>
-            <select name="MarklayerNo">
-              <option value="1">0</option>
+            <select id="eventBoatNoML" name="MarklayerNo">
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -102,16 +102,16 @@
             </select>
 
             <p>Select the number of crew per boat (don't include extras):</p>
-            <select name="boatNo">
+            <select id="eventBoatPersonnelNo" name="PersonnelNo">
               <option value="2">2 Personnel</option>
               <option value="3">3 Personnel</option>
             </select>
 
             <p>When does the event start:</p>
-
+            <input id="eventDateStart" class="date-input" type="date" name="seriesStart">
 
             <p>How many days does the event last?:</p>
-            <select name="eventLength" style="margin-bottom: 20px;">
+            <select id="eventDateLength" name="eventLength" style="margin-bottom: 20px;">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -160,9 +160,7 @@
     <p>RescueRota, Finlay McLees &copy; 2018</p>
   </footer>
 
-<script src="../resources/jquery/jquery.min.js"></script>
-<script src="../resources/db/database.json" charset="utf-8"></script>
 <script src="../resources/js/modal.js" charset="utf-8"></script>
-<script src="../resources/js/app.js" charset="utf-8"></script>
+<script src="../resources/js/dashboardController.js" charset="utf-8"></script>
 </body>
 </html>
