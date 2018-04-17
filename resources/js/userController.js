@@ -132,11 +132,11 @@ function saveUserData(data) {
       data[i].qualifications.ML = MLEditForm.checked;
 
       // Updates the user json file
-      var xhr = new XMLHttpRequest();
-      xhr.open('PUT', 'http://localhost/db/users.json', true);
-      xhr.onload = function() {
-        var users = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 && xhr.status == "200") {
+      // var xhr = new XMLHttpRequest();
+      // xhr.open('PUT', 'http://localhost/db/users.json', true);
+      // xhr.onload = function() {
+      //   var users = JSON.parse(xhr.responseText);
+      //   if (xhr.readyState == 4 && xhr.status == "200") {
 
         }
       }
