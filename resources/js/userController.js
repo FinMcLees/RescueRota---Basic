@@ -1,5 +1,5 @@
 // Bring in the file-system dependencies
-var fs = require('fs');
+// var fs = require('fs');
 
 // Defines the url variable for the server connection
 var urlUsers = "http://localhost:8888/db/users.json";
@@ -152,6 +152,9 @@ function saveUserData(data) {
           "ML": data[i].qualifications.ML
         }
       }
+    }
+  }
+}
 
 
 
