@@ -109,64 +109,6 @@ function eventRotaDefine(data) {
   console.log(data);
 }
 
-<<<<<<< HEAD
-// function seriesRotaDefine(data){
-//   // Grab the input elements
-//   var seriesName = document.getElementById('seriesRotaName').value;
-//   var reqBoatNo = document.getElementById('seriesBoatNo').value;
-//   var personnelPerBoat = document.getElementById('seriesBoatPersonnelNo').value;
-//   var startDate = document.getElementById('seriesDateStart').value;
-//   var endDate = document.getElementById('seriesDateLength').value;
-//
-//   var seriesobj = {
-//     "Name": nameSeroes,
-//     "numberOfBoats": reqBoatNo,
-//     "startDate": startDate,
-//     "endDate": eventLength,
-//     "RBoatDriver": {},
-//     "RBoatCrew": {}
-//   }
-//
-//   boatFill = reqBoatNo;
-//   console.log("Personnel per boat is set at: " + personnelPerBoat);
-//
-//   // Maybe....
-//   for (var i = 0; i < data.length; i++) {}
-//   if (data[i].qualifications.PBL2 && data[i].age >= 16 && data[i].qualifications.ML == false && boatFill > 0 && data[i].used != true) {
-//     var selector = 1;
-//     if (selector = 1) {
-//       seriesobj.RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
-//       data[i].used = true;
-//       selector--;
-//     }
-//     boatFill--;
-//   }
-//   }
-//
-//   // Grab the input elements
-//   var seriesName = document.getElementById('seriesRotaName').value;
-//   var reqBoatNo = document.getElementById('seriesBoatNo').value;
-//   var personnelPerBoat = document.getElementById('seriesBoatPersonnelNo').value;
-//   var startDate = document.getElementById('seriesDateStart').value;
-//   var endDate = document.getElementById('seriesDateLength').value;
-//
-//   boatFill = reqBoatNo;
-//
-//   // Maybe not...
-//   for (var i = 0; i < data.length; i++) {
-//     if (data[i].qualifications.PBL2 && boatFill > 0 && data[i].used != true) {
-//       var selector = 1;
-//       if (selector = 1) {
-//         seriesobj.RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
-//         data[i].used = true;
-//         selector--;
-//       }
-//       boatFill--;
-//     }
-//   console.log(seriesobj);
-//   console.log(data);
-// }
-=======
 function seriesRotaDefine(data){
   // Grab the input elements
   var seriesName = document.getElementById('seriesType').value;
@@ -228,4 +170,3 @@ function seriesRotaDefine(data){
     console.log(data);
   }
 }
->>>>>>> c86406e7789be8d0010780c7e96fab816f599472
