@@ -109,6 +109,7 @@ function eventRotaDefine(data) {
   console.log(data);
 }
 
+<<<<<<< HEAD
 // function seriesRotaDefine(data){
 //   // Grab the input elements
 //   var seriesName = document.getElementById('seriesRotaName').value;
@@ -165,3 +166,66 @@ function eventRotaDefine(data) {
 //   console.log(seriesobj);
 //   console.log(data);
 // }
+=======
+function seriesRotaDefine(data){
+  // Grab the input elements
+  var seriesName = document.getElementById('seriesType').value;
+  var reqBoatNo = document.getElementById('seriesBoatNo').value;
+  var personnelPerBoat = document.getElementById('seriesPersonnelNo').value;
+  var startDate = document.getElementById('seriesStartDate').value;
+  var endDate = document.getElementById('seriesEndDate').value;
+
+  var seriesobj = {
+    "Name": seriesName,
+    "numberOfBoats": reqBoatNo,
+    "startDate": startDate,
+    "endDate": endDate,
+    "RBoatDriver": {},
+    "RBoatCrew": {}
+  }
+
+  console.log(seriesobj);
+
+  boatFill = reqBoatNo;
+  console.log("Personnel per boat is set at: " + personnelPerBoat);
+
+  // datesRequired = if (true) {
+  //
+  // }
+
+  // Maybe....
+  for (var a = 0; a < datesRequired; a++) {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].qualifications.PBL2 && data[i].age >= 16 && boatFill > 0 && data[i].used != true) {
+        for (var a = 0; a < personnelPerBoat; a++) {
+          var selector = 1;
+          if (selector = 1) {
+            eventobj.RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
+            data[i].used = true;
+            selector--;
+          }
+        }
+        boatFill--;
+      }
+    }
+
+    boatFill = reqBoatNo;
+
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].qualifications.PBL2 && boatFill > 0 && data[i].used != true) {
+        for (var a = 0; a < personnelPerBoat; a++) {
+          var selector = 1;
+          if (selector = 1) {
+            eventobj.RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
+            data[i].used = true;
+            selector--;
+          }
+        }
+        boatFill--;
+      }
+    }
+    console.log(seriesobj);
+    console.log(data);
+  }
+}
+>>>>>>> c86406e7789be8d0010780c7e96fab816f599472

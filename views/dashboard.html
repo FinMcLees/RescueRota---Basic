@@ -41,24 +41,30 @@
           <div class="modal-content">
             <span class="closeBtn">&times;</span>
             <h2>Create an Series Rota</h2>
+
+            <select id="seriesType" name="seriesType">
+              <option value="" disabled selected hidden>Select a Series type...</option>
+              <option value="Icebreaker">Icebreaker</option>
+              <option value="Points">Points</option>
+            </select>
+
             <p>Select the number of boats for each race:</p>
-            <select name="boatNo">
-              <option value="1">1 Rescue Boat</option>
+            <select id="seriesBoatNo" name="seriesBoatNo">
               <option value="2">2 Rescue Boats</option>
               <option value="3">3 Rescue Boats</option>
             </select>
 
             <p>Select the number of people per boat:</p>
-            <select name="boatNo">
+            <select id="seriesPersonnelNo" name="seriesPersonnelNo">
               <option value="2">2 Personnel</option>
               <option value="3">3 Personnel</option>
             </select>
 
             <p>Select the series start date:</p>
-            <input class="date-input" type="date" name="seriesStart">
+            <input id="seriesStartDate" class="date-input" type="date" name="seriesStart">
 
             <p>Select the series finish date:</p>
-            <input class="date-input" type="date" name="seriesEnd" style="margin-bottom: 20px;"><br>
+            <input id="seriesEndDate" class="date-input" type="date" name="seriesEnd" style="margin-bottom: 20px;"><br>
 
             <input class="submitBtn" type="submit" onclick="seriesRotaDefine()">
           </div>
