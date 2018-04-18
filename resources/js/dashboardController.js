@@ -111,62 +111,62 @@ function eventRotaDefine(data) {
 
 function seriesRotaDefine(data){
   // Grab the input elements
-  var seriesName = document.getElementById('seriesRotaName').value;
+  var seriesName = document.getElementById('seriesType').value;
   var reqBoatNo = document.getElementById('seriesBoatNo').value;
-  var personnelPerBoat = document.getElementById('seriesBoatPersonnelNo').value;
-  var startDate = document.getElementById('seriesDateStart').value;
-  var endDate = document.getElementById('seriesDateLength').value;
+  var personnelPerBoat = document.getElementById('seriesPersonnelNo').value;
+  var startDate = document.getElementById('seriesStartDate').value;
+  var endDate = document.getElementById('seriesEndDate').value;
 
   var seriesobj = {
-    "Name": nameSeroes,
+    "Name": seriesName,
     "numberOfBoats": reqBoatNo,
     "startDate": startDate,
-    "endDate": eventLength,
+    "endDate": endDate,
     "RBoatDriver": {},
     "RBoatCrew": {}
   }
 
+  console.log(seriesobj);
+
   boatFill = reqBoatNo;
   console.log("Personnel per boat is set at: " + personnelPerBoat);
 
+  // datesRequired = if (true) {
+  //
+  // }
+
   // Maybe....
-  for (var i = 0; i < data.length; i++) {
-    } if (data[i].qualifications.PBL2 && data[i].age >= 16 && data[i].qualifications.ML == false && reqBoatNo > mlBoatNo && boatFill > 0 && data[i].used != true) {
-      for (var a = 0; a < personnelPerBoat; a++) {
-        var selector = 1;
-        if (selector = 1) {
-          eventobj.RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
-          data[i].used = true;
-          selector--;
+  for (var a = 0; a < datesRequired; a++) {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].qualifications.PBL2 && data[i].age >= 16 && boatFill > 0 && data[i].used != true) {
+        for (var a = 0; a < personnelPerBoat; a++) {
+          var selector = 1;
+          if (selector = 1) {
+            eventobj.RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
+            data[i].used = true;
+            selector--;
+          }
         }
+        boatFill--;
       }
-      boatFill--;
     }
-  }
 
-  // Grab the input elements
-  var seriesName = document.getElementById('seriesRotaName').value;
-  var reqBoatNo = document.getElementById('seriesBoatNo').value;
-  var personnelPerBoat = document.getElementById('seriesBoatPersonnelNo').value;
-  var startDate = document.getElementById('seriesDateStart').value;
-  var endDate = document.getElementById('seriesDateLength').value;
+    boatFill = reqBoatNo;
 
-  boatFill = reqBoatNo;
-
-  // Maybe not...
-  for (var i = 0; i < data.length; i++) {
-     if (data[i].qualifications.PBL2 && data[i].qualifications.ML == false && reqBoatNo > mlBoatNo && boatFill > 0 && data[i].used != true) {
-      for (var a = 0; a < personnelPerBoat; a++) {
-        var selector = 1;
-        if (selector = 1) {
-          eventobj.RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
-          data[i].used = true;
-          selector--;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].qualifications.PBL2 && boatFill > 0 && data[i].used != true) {
+        for (var a = 0; a < personnelPerBoat; a++) {
+          var selector = 1;
+          if (selector = 1) {
+            eventobj.RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
+            data[i].used = true;
+            selector--;
+          }
         }
+        boatFill--;
       }
-      boatFill--;
     }
+    console.log(seriesobj);
+    console.log(data);
   }
-  console.log(seriesobj);
-  console.log(data);
 }
