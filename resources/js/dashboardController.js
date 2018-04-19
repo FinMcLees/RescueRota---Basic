@@ -16,6 +16,18 @@ function eventUserFetch() {
   usersRequest.send();
 }
 
+// Fetches the user json list using an XML Http request
+function seriesUserFetch() {
+  var usersRequest = new XMLHttpRequest();
+
+  usersRequest.open('GET', urlUsers);
+  usersRequest.onload = function() {
+    var recievedData = JSON.parse(usersRequest.responseText);
+    seriesRotaDefine(recievedData);
+  };
+  usersRequest.send();
+}
+
 function collateUsers(data){
   return;
 }
@@ -122,38 +134,15 @@ function seriesRotaDefine(data) {
     "numberOfBoats": reqBoatNo,
     "startDate": startDate,
     "endDate": endDate,
-    "races": {
-      "date": {
-        "boat1": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        },
-        "boat2": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        }
-      },
-      "date": {
-        "boat1": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        },
-        "boat2": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        }
-      },
-      "date": {
-        "boat1": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        },
-        "boat2": {
-          "RBoatDriver": {},
-          "RBoatCrew": {}
-        }
-      }
-    }
+    "races": [{
+      "date": " ",
+      "RBoatDriver": " ",
+      "RBoatCrew": " "
+    }, {
+      "date": " ",
+      "RBoatDriver": " ",
+      "RBoatCrew": " "
+    }]
   }
 
   console.log(seriesobj);
@@ -161,13 +150,14 @@ function seriesRotaDefine(data) {
   boatFill = reqBoatNo;
   console.log("Personnel per boat is set at: " + personnelPerBoat);
 
-  function getCountOf(d1, d2, dayToSearch) {
+  function getCountOf(d1, d2, dayToSearch, count) {
 
-    var dateObj1 = d1.parse();
-    var dateObj2 = d2.parse();
+    var dateObj1 = d1;
+    var dateObj2 = d2;
     var count = 0;
     var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     var dayIndex = week.indexOf(dayToSearch);
+    var count = 0;
 
     while (dateObj1.getTime() <= dateObj2.getTime()) {
       if (dateObj1.getDay() == dayIndex) {
@@ -175,32 +165,30 @@ function seriesRotaDefine(data) {
       }
       dateObj1.setDate(dateObj1.getDate() + 1);
     }
-    return count;
+    datesRequired = count;
+    return datesRequired;
   }
 
   var d1 = new Date(startDate);
-
   var d2 = new Date(endDate);
-
   var dayToSearch = "Sun";
-
   getCountOf(d1, d2, dayToSearch);
 
-  datesRequired = count;
-
-  console.log(datesRequired);
+  console.log("Number of Sundays is: " + datesRequired);
 
   // Maybe....
-  for (var a = 0; a < datesRequired; a++) {
+  for (var a = 0; a < datesRequired; datesRequired--) {
     for (var i = 0; i < data.length; i++) {
       if (data[i].qualifications.PBL2 && data[i].age >= 16 && boatFill > 0 && data[i].used != true) {
         for (var a = 0; a < personnelPerBoat; a++) {
           var selector = 1;
+          console.log('Position 1');
           if (selector = 1) {
-            eventobj.RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
+            seriesobj.races[datesRequired].RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
             data[i].used = true;
             selector--;
           }
+          console.log('Position 2');
         }
         boatFill--;
       }
@@ -213,7 +201,7 @@ function seriesRotaDefine(data) {
         for (var a = 0; a < personnelPerBoat; a++) {
           var selector = 1;
           if (selector = 1) {
-            eventobj.RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
+            seriesobj.races[datesRequired].RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
             data[i].used = true;
             selector--;
           }
@@ -221,7 +209,7 @@ function seriesRotaDefine(data) {
         boatFill--;
       }
     }
-    console.log(seriesobj);
-    console.log(data);
   }
+  console.log(seriesobj);
+  console.log(data);
 }
