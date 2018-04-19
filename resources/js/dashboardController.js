@@ -5,11 +5,12 @@ var urlEvents = "http://localhost:8888/db/events.json";
 
 // User functions
 // Fetches the user json list using an XML Http request
-function eventUserFetch() {
+function eventUserFetch()
+{
   var usersRequest = new XMLHttpRequest();
-
   usersRequest.open('GET', urlUsers);
-  usersRequest.onload = function() {
+  usersRequest.onload = function()
+  {
     var recievedData = JSON.parse(usersRequest.responseText);
     eventRotaDefine(recievedData);
   };
@@ -17,19 +18,16 @@ function eventUserFetch() {
 }
 
 // Fetches the user json list using an XML Http request
-function seriesUserFetch() {
+function seriesUserFetch()
+{
   var usersRequest = new XMLHttpRequest();
-
   usersRequest.open('GET', urlUsers);
-  usersRequest.onload = function() {
+  usersRequest.onload = function()
+  {
     var recievedData = JSON.parse(usersRequest.responseText);
     seriesRotaDefine(recievedData);
   };
   usersRequest.send();
-}
-
-function collateUsers(data){
-  return;
 }
 
 function eventRotaDefine(data) {
@@ -122,6 +120,7 @@ function eventRotaDefine(data) {
 }
 
 function seriesRotaDefine(data) {
+
   // Grab the input elements
   var seriesName = document.getElementById('seriesType').value;
   var reqBoatNo = document.getElementById('seriesBoatNo').value;
@@ -134,37 +133,33 @@ function seriesRotaDefine(data) {
     "numberOfBoats": reqBoatNo,
     "startDate": startDate,
     "endDate": endDate,
-    "races": [{
-      "date": " ",
-      "RBoatDriver": " ",
-      "RBoatCrew": " "
-    }, {
-      "date": " ",
-      "RBoatDriver": " ",
-      "RBoatCrew": " "
-    }]
+    "races": [{},{},{},{},{},{},{},{},{}]
   }
 
-  console.log(seriesobj);
+  // console.log(seriesobj);
 
-  boatFill = reqBoatNo;
   console.log("Personnel per boat is set at: " + personnelPerBoat);
 
-  function getCountOf(d1, d2, dayToSearch, count) {
+  var dateArray = [];
 
+  function getCountOfDay(d1, d2, dayToSearch, count)
+  {
     var dateObj1 = d1;
     var dateObj2 = d2;
     var count = 0;
     var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     var dayIndex = week.indexOf(dayToSearch);
-    var count = 0;
 
-    while (dateObj1.getTime() <= dateObj2.getTime()) {
-      if (dateObj1.getDay() == dayIndex) {
+    while (dateObj1.getTime() <= dateObj2.getTime())
+    {
+      if (dateObj1.getDay() == dayIndex)
+      {
         count++
+        dateArray.push(dateObj1.toDateString());
       }
       dateObj1.setDate(dateObj1.getDate() + 1);
     }
+
     datesRequired = count;
     return datesRequired;
   }
@@ -172,44 +167,50 @@ function seriesRotaDefine(data) {
   var d1 = new Date(startDate);
   var d2 = new Date(endDate);
   var dayToSearch = "Sun";
-  getCountOf(d1, d2, dayToSearch);
+
+  getCountOfDay(d1, d2, dayToSearch);
+
+  console.log("Date List: ");
+  console.log(dateArray);
 
   console.log("Number of Sundays is: " + datesRequired);
 
   // Maybe....
-  for (var a = 0; a < datesRequired; datesRequired--) {
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].qualifications.PBL2 && data[i].age >= 16 && boatFill > 0 && data[i].used != true) {
-        for (var a = 0; a < personnelPerBoat; a++) {
-          var selector = 1;
-          console.log('Position 1');
-          if (selector = 1) {
-            seriesobj.races[datesRequired].RBoatDriver[boatFill] = data[i].firstName + " " + data[i].lastName;
-            data[i].used = true;
-            selector--;
-          }
-          console.log('Position 2');
+  for (var a = 0; a < datesRequired; a++)
+  {
+    boatFill = reqBoatNo;
+    for (var i = 0; i < data.length; i++)
+    {
+      if (data[i].qualifications.PBL2 && data[i].age >= 16 && boatFill > 0 && data[i].used != true)
+      {
+        for (var b = 0; b < personnelPerBoat; b++)
+        {
+          seriesobj.races[a].date = dateArray.shift();
+          seriesobj.races[a].RBoatDriver = data[i].firstName + " " + data[i].lastName;
+          data[i].used = true;
         }
         boatFill--;
       }
     }
-
+    
     boatFill = reqBoatNo;
 
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].qualifications.PBL2 && boatFill > 0 && data[i].used != true) {
-        for (var a = 0; a < personnelPerBoat; a++) {
-          var selector = 1;
-          if (selector = 1) {
-            seriesobj.races[datesRequired].RBoatCrew[boatFill] = data[i].firstName + " " + data[i].lastName;
-            data[i].used = true;
-            selector--;
-          }
+    for (var i = 0; i < data.length; i++)
+    {
+      if (data[i].qualifications.PBL2 && boatFill > 0 && data[i].used != true)
+      {
+        for (var b = 0; b < personnelPerBoat; b++)
+        {
+          console.log("This is run number: " + a);
+          console.log(seriesobj);
+          seriesobj.races[a].RBoatCrew = data[i].firstName + " " + data[i].lastName;
+          data[i].used = true;
         }
         boatFill--;
       }
     }
+    console.log(a);
+    console.log(data);
+    console.log(seriesobj);
   }
-  console.log(seriesobj);
-  console.log(data);
 }
