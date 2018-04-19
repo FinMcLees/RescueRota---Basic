@@ -109,7 +109,7 @@ function eventRotaDefine(data) {
   console.log(data);
 }
 
-function seriesRotaDefine(data){
+function seriesRotaDefine(data) {
   // Grab the input elements
   var seriesName = document.getElementById('seriesType').value;
   var reqBoatNo = document.getElementById('seriesBoatNo').value;
@@ -122,8 +122,38 @@ function seriesRotaDefine(data){
     "numberOfBoats": reqBoatNo,
     "startDate": startDate,
     "endDate": endDate,
-    "RBoatDriver": {},
-    "RBoatCrew": {}
+    "races": {
+      "date": {
+        "boat1": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        },
+        "boat2": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        }
+      },
+      "date": {
+        "boat1": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        },
+        "boat2": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        }
+      },
+      "date": {
+        "boat1": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        },
+        "boat2": {
+          "RBoatDriver": {},
+          "RBoatCrew": {}
+        }
+      }
+    }
   }
 
   console.log(seriesobj);
@@ -131,9 +161,34 @@ function seriesRotaDefine(data){
   boatFill = reqBoatNo;
   console.log("Personnel per boat is set at: " + personnelPerBoat);
 
-  // datesRequired = if (true) {
-  //
-  // }
+  function getCountOf(d1, d2, dayToSearch) {
+
+    var dateObj1 = d1.parse();
+    var dateObj2 = d2.parse();
+    var count = 0;
+    var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var dayIndex = week.indexOf(dayToSearch);
+
+    while (dateObj1.getTime() <= dateObj2.getTime()) {
+      if (dateObj1.getDay() == dayIndex) {
+        count++
+      }
+      dateObj1.setDate(dateObj1.getDate() + 1);
+    }
+    return count;
+  }
+
+  var d1 = new Date(startDate);
+
+  var d2 = new Date(endDate);
+
+  var dayToSearch = "Sun";
+
+  getCountOf(d1, d2, dayToSearch);
+
+  datesRequired = count;
+
+  console.log(datesRequired);
 
   // Maybe....
   for (var a = 0; a < datesRequired; a++) {
