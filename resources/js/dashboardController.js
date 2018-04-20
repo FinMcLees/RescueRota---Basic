@@ -192,7 +192,7 @@ function seriesRotaDefine(data) {
         boatFill--;
       }
     }
-    
+
     boatFill = reqBoatNo;
 
     for (var i = 0; i < data.length; i++)
@@ -209,8 +209,14 @@ function seriesRotaDefine(data) {
         boatFill--;
       }
     }
-    console.log(a);
-    console.log(data);
-    console.log(seriesobj);
   }
+  console.log(a);
+  console.log(data);
+  console.log(seriesobj);
+}
+
+function displaySeries(){
+  seriesHeading = "<h2>" + + "</h2>";
+  seriesBoat =
+  cardcontent.insertAdjacentHTML('beforeend', userString);
 }
